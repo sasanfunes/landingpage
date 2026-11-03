@@ -227,12 +227,17 @@ body::before {
 .intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.5rem 5rem; }
 .intro__text { display: grid; gap: 1.3rem; max-width: 40rem; }
 .intro__text p:not(.subtitle) { color: var(--grafito); }
-.essence { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; margin-top: clamp(3rem, 5vw, 4.5rem); }
+.essence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 4rem; margin-top: clamp(3rem, 5vw, 4.5rem); }
 .essence__item { border-top: 1px solid var(--medianoche); padding-top: 1.6rem; }
-.essence__item--gold { border-top-color: var(--oro); }
 .essence__item h3 { font-size: 1.45rem; margin-bottom: .8rem; }
-.essence__item p, .essence__item li { color: var(--grafito); }
-.essence__item ul { display: grid; gap: .3rem; }
+.essence__item p { color: var(--grafito); max-width: 36rem; }
+
+.values { margin-top: clamp(3rem, 5vw, 4.5rem); border-top: 1px solid var(--oro); padding-top: 1.6rem; }
+.values__title { font-size: 1.45rem; margin-bottom: 1.8rem; }
+.values__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--niebla); border: 1px solid var(--niebla); }
+.values__list li { background: var(--marfil-claro); padding: 1.6rem 1.6rem 1.8rem; display: grid; gap: .5rem; align-content: start; }
+.values__list h4 { font-size: 1.1rem; font-weight: 600; }
+.values__list p { font-size: var(--fs-sm); color: var(--grafito); }
 
 /* ---------- Empresas: monocromo y mismo peso visual ---------- */
 .companies { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
@@ -424,6 +429,7 @@ body::before {
   .head--split > .link { justify-self: start; }
   .companies, .esg, .news, .essence { grid-template-columns: 1fr; }
   .essence { gap: 2rem; }
+  .values__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 600px) {
@@ -436,6 +442,7 @@ body::before {
   .cut svg { margin-inline: -8px; width: calc(100% + 16px); max-width: none; }
   .company__facts dd { font-size: 1.2rem; }
   .form__row { grid-template-columns: 1fr; }
+  .values__list { grid-template-columns: 1fr; }
   .form .btn { justify-self: stretch; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .footer__legal { flex-direction: column; align-items: flex-start; }
