@@ -243,7 +243,7 @@ body::before {
 .companies { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
 .company { background: var(--marfil); border: 1px solid var(--niebla); display: flex; flex-direction: column; }
 .company__logo {
-  display: grid; place-items: center; aspect-ratio: 16 / 6; max-width: 100%;
+  display: grid; place-items: center; aspect-ratio: 16 / 5; max-width: 100%;
   border-bottom: 1px solid var(--niebla);
   background: var(--marfil-claro);
 }
@@ -255,11 +255,6 @@ body::before {
 .company__sector { font-size: var(--fs-over); font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--pizarra); }
 .company h3 { font-size: 1.6rem; font-weight: 500; }
 .company__body > p:not(.company__sector) { color: var(--grafito); }
-.company__facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-block: 1px solid var(--niebla); margin: .5rem 0; }
-.company__facts div { padding: 1rem .75rem 1rem 0; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: .25rem; }
-.company__facts div + div { padding-left: .9rem; border-left: 1px solid var(--niebla); }
-.company__facts dt { font-size: var(--fs-note); color: var(--pizarra); line-height: 1.3; }
-.company__facts dd { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 1.5rem; color: var(--medianoche); line-height: 1.1; font-variant-numeric: tabular-nums; }
 .company .link { margin-top: auto; align-self: flex-start; }
 
 /* ---------- Sostenibilidad ---------- */
@@ -403,8 +398,7 @@ body::before {
   .figure { padding-right: .8rem; }
   .figure + .figure { padding-left: .8rem; }
   .figure:nth-child(3) { padding-left: 0; }
-  .company__facts dd { font-size: 1.2rem; }
-  .form__row { grid-template-columns: 1fr; }
+    .form__row { grid-template-columns: 1fr; }
   .values__list { grid-template-columns: 1fr; }
   .form .btn { justify-self: stretch; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
