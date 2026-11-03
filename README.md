@@ -1,40 +1,35 @@
-# Grupo Valmora — Landing page corporativa
+# Grupo STF: sitio corporativo
 
-Sitio estático (HTML, CSS y JavaScript sin dependencias) para un grupo de la construcción con dos unidades de negocio:
+Sitio estático (HTML, CSS y JavaScript sin dependencias) del corporativo Grupo STF y sus dos empresas del sector construcción: una fábrica de morteros y una tienda de acabados.
 
-- **Valmora Morteros**: fábrica de morteros industriales.
-- **Valmora Acabados**: red de tiendas de acabados.
+Todos los elementos visuales siguen el **Manual de Marca de Grupo STF, v1.0 (octubre 2026)**:
 
-> "Grupo Valmora", las cifras, direcciones y noticias son contenido de ejemplo. Reemplázalos por los datos reales de la empresa.
+| Elemento | Aplicación en el sitio |
+|---|---|
+| Paleta | Azul Medianoche `#0F1B2D`, Marfil `#F4F1EA`, Oro Champán `#B59A6A`; apoyo: Grafito, Pizarra, Oro Profundo y Niebla. Las bandas oscuras y claras se alternan cerca de la proporción 55 / 30 / 10 / 5, y el dorado se usa solo como acento. No se usa blanco puro. |
+| Tipografía | Montserrat para titulares (Medium), subtítulos (Light) y cifras; Inter para texto, antetítulos (SemiBold en mayúsculas) y notas de fuente (Light). |
+| Logotipo | Versión horizontal positiva en el encabezado y negativa en el pie, a 160 px o más (tamaño mínimo digital), sin efectos. El favicon es el símbolo en negativo sobre Azul Medianoche. |
+| Arquitectura de marca | Las empresas aparecen en monocromo y con el mismo peso visual, sin el emblema STF. Su pertenencia se indica solo en el texto legal del pie: «Empresa integrante de Grupo STF». |
+| Tono de voz | Trato de «usted», frases breves, sin superlativos, y cifras acompañadas de su fuente. |
 
-## Secciones
+## Logotipo
 
-1. Barra utilitaria (inversionistas, proveedores, empleo, idioma)
-2. Encabezado fijo con navegación y menú móvil
-3. Hero con corte constructivo del muro y cifras clave
-4. El Grupo: historia, misión, visión y valores
-5. Unidades de negocio
-6. Modelo integrado (cadena de valor)
-7. Sostenibilidad / ESG y gobierno corporativo
-8. Calidad e innovación (certificaciones)
-9. Presencia (planta, centros de distribución, showrooms)
-10. Sala de prensa
-11. Trabaja con nosotros
-12. Contacto con formulario validado
-13. Pie con enlaces corporativos, legales y redes
+Los archivos de `assets/brand/` se vectorizaron a partir de las láminas del manual, porque el PDF no incluye vectores. **Antes de publicar, reemplácelos por los archivos maestros oficiales**, tal como exige el manual. Use los mismos nombres de archivo:
 
-## Estructura
+- `grupo-stf-horizontal.svg`: positivo
+- `grupo-stf-horizontal-negativo.svg`: negativo
+- `grupo-stf-simbolo.svg`: símbolo
+- `favicon.svg`: símbolo en negativo sobre Azul Medianoche
 
-```
-index.html
-css/styles.css   # tokens de diseño al inicio (colores, tipografías, espaciado)
-js/main.js       # menú, scroll, contadores, validación del formulario
-assets/favicon.svg
-```
+## Contenido que falta completar
+
+- Los nombres y logotipos de las dos empresas, que hoy aparecen entre corchetes.
+- Los datos de contacto: dirección, teléfono y correo.
+- Las cifras, noticias e indicadores ESG son de ejemplo. Sustitúyalos por datos reales con su fuente.
+- Conectar el formulario a un servicio de envío (ver el `TODO` en `js/main.js`).
+- Enlazar los documentos reales: reportes, información financiera y Código de Ética.
 
 ## Ver en local
-
-Abre `index.html` en el navegador, o sirve la carpeta:
 
 ```bash
 python3 -m http.server 8080
@@ -42,10 +37,4 @@ python3 -m http.server 8080
 
 ## Publicar con GitHub Pages
 
-Settings → Pages → *Deploy from a branch* → elige la rama y la carpeta `/ (root)`.
-
-## Pendientes para producción
-
-- Conectar el formulario a un backend o servicio (ver `TODO` en `js/main.js`).
-- Sustituir los ilustrados por fotografía real de planta y showrooms si se desea.
-- Enlazar los documentos reales (reporte de sostenibilidad, fichas técnicas, código de ética).
+En Settings → Pages, elija *Deploy from a branch*, seleccione la rama y la carpeta `/ (root)`.

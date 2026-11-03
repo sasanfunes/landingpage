@@ -49,7 +49,7 @@
     /* Aparición suave de bloques (el contenido ya es visible sin JS) */
     if (!reduceMotion) {
       var targets = document.querySelectorAll(
-        ".section__head, .about__body, .pillar, .unit, .chain__step, .esg__card, .certs, .presence__item, .news__item, .form"
+        ".head, .intro__text, .essence__item, .company, .steps li, .cut, .esg__item, .ir-list, .news__item, .form"
       );
       var revealer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -91,21 +91,21 @@
     }
   }
 
-  /* Enlaces de unidad: preseleccionan el área en el formulario */
-  var unitSelect = document.getElementById("f-unit");
-  document.querySelectorAll("[data-unit]").forEach(function (a) {
-    a.addEventListener("click", function () { unitSelect.value = a.dataset.unit; });
+  /* Enlaces con área: preseleccionan el asunto en el formulario */
+  var areaSelect = document.getElementById("f-area");
+  document.querySelectorAll("[data-area]").forEach(function (a) {
+    a.addEventListener("click", function () { areaSelect.value = a.dataset.area; });
   });
 
   /* Formulario de contacto (validación del lado del cliente) */
   var form = document.getElementById("contact-form");
   var status = document.getElementById("form-status");
   var rules = {
-    "f-name": function (v) { return v.trim().length >= 3 ? "" : "Escribe tu nombre y apellido."; },
-    "f-email": function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : "Escribe un correo válido, por ejemplo nombre@empresa.com."; },
-    "f-unit": function (v) { return v ? "" : "Elige el área a la que va dirigida tu consulta."; },
-    "f-message": function (v) { return v.trim().length >= 10 ? "" : "Cuéntanos un poco más (mínimo 10 caracteres)."; },
-    "f-consent": function (_, el) { return el.checked ? "" : "Debes aceptar la Política de Privacidad para continuar."; }
+    "f-name": function (v) { return v.trim().length >= 3 ? "" : "Indique su nombre y apellido."; },
+    "f-email": function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : "Indique un correo válido, por ejemplo nombre@empresa.com."; },
+    "f-area": function (v) { return v ? "" : "Seleccione el asunto de su consulta."; },
+    "f-message": function (v) { return v.trim().length >= 10 ? "" : "Describa su consulta en al menos 10 caracteres."; },
+    "f-consent": function (_, el) { return el.checked ? "" : "Para enviar la consulta, acepte el Aviso de Privacidad."; }
   };
 
   function validate(id) {
@@ -133,13 +133,13 @@
     var firstInvalid = ids[results.indexOf(false)];
     if (firstInvalid) {
       status.className = "form__status is-error";
-      status.textContent = "Revisa los campos marcados para enviar tu consulta.";
+      status.textContent = "Revise los campos marcados para enviar su consulta.";
       document.getElementById(firstInvalid).focus();
       return;
     }
     // TODO: conectar con el backend o servicio de formularios (Formspree, HubSpot, etc.).
     status.className = "form__status is-ok";
-    status.textContent = "Gracias. Recibimos tu consulta y te responderemos en un día hábil.";
+    status.textContent = "Gracias. Recibimos su consulta y le responderemos en un día hábil.";
     form.reset();
   });
 })();
