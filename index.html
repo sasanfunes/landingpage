@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
-  <link rel="stylesheet" href="css/styles.css?v=10">
+  <link rel="stylesheet" href="css/styles.css?v=11">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -51,25 +51,28 @@
   <main id="contenido">
 
     <!-- Hero -->
-    <section class="hero band band--dark">
-      <svg class="hero__symbol" viewBox="0 0 452 778" aria-hidden="true">
-        <path class="hero__symbol-top" d="M0 0H112V211H452V323H112V485H0Z"/>
-        <path class="hero__symbol-bottom" d="M0 664H339V324H452V778H0Z"/>
-      </svg>
-      <div class="wrap hero__inner">
-        <p class="overline">Grupo STF Honduras</p>
-        <h1 class="hero__title">Visión que transforma.</h1>
-        <p class="hero__sub">Innovamos hoy para construir el mañana. Unimos experiencia, talento y tecnología para impulsar el desarrollo de cada una de nuestras empresas.</p>
-        <div class="hero__actions">
-          <a class="btn btn--gold" href="#empresas">Conozca nuestras empresas</a>
-          <a class="btn btn--outline" href="#grupo">Conozca al Grupo</a>
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="wrap hero__grid">
+        <div class="hero__inner">
+          <p class="overline">Grupo STF Honduras</p>
+          <h1 class="hero__title">Visión que<br>transforma.</h1>
+          <p class="hero__sub">Innovamos hoy para construir el mañana. Unimos experiencia, talento y tecnología para impulsar el desarrollo de cada una de nuestras empresas.</p>
+          <div class="hero__actions">
+            <a class="btn btn--gold" href="#empresas">Conozca nuestras empresas</a>
+            <a class="btn btn--ghost" href="#grupo">Conozca al Grupo <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          </div>
         </div>
-
+        <div class="hero__art" aria-hidden="true">
+          <svg class="hero__symbol" viewBox="0 0 452 778"><path class="sym-top" d="M0 0H112V211H452V323H112V485H0Z"/><path class="sym-bottom" d="M0 664H339V324H452V778H0Z"/></svg>
+        </div>
+      </div>
+      <div class="wrap">
         <dl class="figures">
           <div class="figure"><dt>Años de trayectoria</dt><dd data-count="30">30</dd></div>
           <div class="figure"><dt>Empresas integrantes</dt><dd data-count="4">4</dd></div>
           <div class="figure"><dt>Departamentos con presencia</dt><dd data-count="12">12</dd></div>
-          <div class="figure"><dt>Clientes atendidos en 2025</dt><dd><span data-count="15">15</span> mil</dd></div>
+          <div class="figure"><dt>Clientes atendidos en 2025</dt><dd><span data-count="15">15</span><small> mil</small></dd></div>
         </dl>
         <p class="source">Fuente: Dirección de Finanzas Corporativas, cifras al cierre de 2025.</p>
       </div>
@@ -77,32 +80,27 @@
 
     <!-- El Grupo -->
     <section class="band band--light" id="grupo">
-      <div class="wrap">
-        <div class="intro">
-          <div>
-            <p class="overline">El Grupo</p>
-            <h2>Quiénes somos</h2>
-          </div>
-          <div class="intro__text">
-            <p class="subtitle">En Grupo STF construimos el futuro desde hoy.</p>
-            <p>Somos un corporativo diversificado que combina experiencia, visión y talento para desarrollar empresas sólidas, competitivas y preparadas para los retos de un mundo en constante cambio.</p>
-          </div>
-        </div>
+      <div class="wrap split">
+        <header class="split__aside">
+          <p class="overline">El Grupo</p>
+          <h2>Quiénes somos</h2>
+        </header>
+        <div class="split__main">
+          <p class="statement"><strong>En Grupo STF construimos el futuro desde hoy.</strong> Somos un corporativo diversificado que combina experiencia, visión y talento para desarrollar empresas sólidas, competitivas y preparadas para los retos de un mundo en constante cambio.</p>
 
-        <div class="essence">
-          <article class="essence__item">
-            <h3>Propósito</h3>
-            <p>Impulsar el crecimiento de empresas que generen valor real para las personas, las industrias y las comunidades donde participamos.</p>
-          </article>
-          <article class="essence__item">
-            <h3>Visión</h3>
-            <p>Ser un grupo empresarial referente por su capacidad de innovar, diversificar y construir empresas líderes, preparadas para los retos del futuro.</p>
-          </article>
-        </div>
+          <div class="essence">
+            <article class="essence__item essence__item--dark">
+              <p class="tag">Propósito</p>
+              <p>Impulsar el crecimiento de empresas que generen valor real para las personas, las industrias y las comunidades donde participamos.</p>
+            </article>
+            <article class="essence__item">
+              <p class="tag">Visión</p>
+              <p>Ser un grupo empresarial referente por su capacidad de innovar, diversificar y construir empresas líderes, preparadas para los retos del futuro.</p>
+            </article>
+          </div>
 
-        <div class="values">
           <h3 class="values__title">Valores</h3>
-          <ul class="values__list">
+          <ul class="values">
             <li><h4>Innovación</h4><p>Buscamos nuevas formas de hacer las cosas y evolucionamos con cada reto.</p></li>
             <li><h4>Integridad</h4><p>Actuamos con honestidad, transparencia y congruencia en cada decisión.</p></li>
             <li><h4>Excelencia</h4><p>Nos exigimos los más altos estándares en todo lo que hacemos.</p></li>
@@ -115,60 +113,51 @@
     </section>
 
     <!-- Empresas -->
-    <section class="band band--paper" id="empresas">
+    <section class="band band--dark" id="empresas">
       <div class="wrap">
-        <header class="head head--split">
+        <header class="head">
           <div>
             <p class="overline">Nuestras empresas</p>
             <h2>Un corporativo, empresas independientes</h2>
           </div>
           <p>Cada empresa conserva su nombre, su logotipo y su sistema visual. El corporativo aporta gobierno, financiamiento y estrategia.</p>
         </header>
-
         <div class="companies">
           <article class="company">
-            <div class="company__logo" role="img" aria-label="Espacio para el logotipo de Minerales y Triturados Odessa">
-              <span>[Logotipo]</span>
-            </div>
+            <div class="company__logo"><span class="company__placeholder" role="img" aria-label="Espacio para el logotipo de Minerales y Triturados Odessa">[Logotipo]</span></div>
             <div class="company__body">
-              <p class="company__sector">Industria · Fábrica de morteros</p>
+              <p class="tag">Industria · Fábrica de morteros</p>
               <h3>Minerales y Triturados Odessa</h3>
-              <p>Produce morteros secos y agregados triturados para obra gruesa, revestimientos y aplicaciones técnicas, con control de calidad en cada lote.</p>
-              <a class="link" href="#">Visitar sitio de la empresa</a>
+              <p class="company__desc">Produce morteros secos y agregados triturados para obra gruesa, revestimientos y aplicaciones técnicas, con control de calidad en cada lote.</p>
             </div>
+            <a class="company__cta" href="#"><span>Visitar sitio de la empresa</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
           </article>
           <article class="company">
-            <div class="company__logo" role="img" aria-label="Espacio para el logotipo de Desarrollos Motrique">
-              <span>[Logotipo]</span>
-            </div>
+            <div class="company__logo"><span class="company__placeholder" role="img" aria-label="Espacio para el logotipo de Desarrollos Motrique">[Logotipo]</span></div>
             <div class="company__body">
-              <p class="company__sector">Inmobiliario · Desarrolladora inmobiliaria</p>
+              <p class="tag">Inmobiliario · Desarrolladora inmobiliaria</p>
               <h3>Desarrollos Motrique</h3>
-              <p>Desarrolla proyectos residenciales y comerciales, desde la adquisición del terreno y el diseño hasta la construcción y la entrega.</p>
-              <a class="link" href="#">Visitar sitio de la empresa</a>
+              <p class="company__desc">Desarrolla proyectos residenciales y comerciales, desde la adquisición del terreno y el diseño hasta la construcción y la entrega.</p>
             </div>
+            <a class="company__cta" href="#"><span>Visitar sitio de la empresa</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
           </article>
           <article class="company">
-            <div class="company__logo">
-              <img src="assets/empresas/logistica-integral-azul.svg" width="220" height="52" alt="Logística Integral">
-            </div>
+            <div class="company__logo"><img src="assets/empresas/logistica-integral-azul.svg" width="220" height="52" alt="Logística Integral"></div>
             <div class="company__body">
-              <p class="company__sector">Servicios · Empresa logística</p>
+              <p class="tag">Servicios · Empresa logística</p>
               <h3>Logística Integral</h3>
-              <p>Ofrece transporte, almacenamiento y distribución de carga para las empresas del Grupo y para clientes de distintos sectores.</p>
-              <a class="link" href="#">Visitar sitio de la empresa</a>
+              <p class="company__desc">Ofrece transporte, almacenamiento y distribución de carga para las empresas del Grupo y para clientes de distintos sectores.</p>
             </div>
+            <a class="company__cta" href="#"><span>Visitar sitio de la empresa</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
           </article>
           <article class="company">
-            <div class="company__logo" role="img" aria-label="Espacio para el logotipo de Global Trade">
-              <span>[Logotipo]</span>
-            </div>
+            <div class="company__logo"><span class="company__placeholder" role="img" aria-label="Espacio para el logotipo de Global Trade">[Logotipo]</span></div>
             <div class="company__body">
-              <p class="company__sector">Comercio · Empresa comercial</p>
+              <p class="tag">Comercio · Empresa comercial</p>
               <h3>Global Trade</h3>
-              <p>Importa y comercializa productos y materiales, y conecta a fabricantes internacionales con clientes en Honduras.</p>
-              <a class="link" href="#">Visitar sitio de la empresa</a>
+              <p class="company__desc">Importa y comercializa productos y materiales, y conecta a fabricantes internacionales con clientes en Honduras.</p>
             </div>
+            <a class="company__cta" href="#"><span>Visitar sitio de la empresa</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
           </article>
         </div>
       </div>
@@ -177,7 +166,7 @@
     <!-- Sostenibilidad -->
     <section class="band band--light" id="sostenibilidad">
       <div class="wrap">
-        <header class="head head--split">
+        <header class="head">
           <div>
             <p class="overline">Sostenibilidad</p>
             <h2>Metas públicas, avances medibles</h2>
@@ -185,8 +174,8 @@
           <p>La estrategia de sostenibilidad del Grupo se organiza en tres ejes, con metas al 2030 y un reporte anual elaborado bajo estándares GRI.</p>
         </header>
         <div class="esg">
-          <article class="esg__item">
-            <p class="esg__axis">Ambiental</p>
+          <article class="esg__item esg__item--feature">
+            <p class="tag">Ambiental</p>
             <p class="esg__figure">−18 %</p>
             <p class="esg__label">Emisiones de CO₂ por tonelada producida, frente a 2019</p>
             <ul>
@@ -196,7 +185,7 @@
             </ul>
           </article>
           <article class="esg__item">
-            <p class="esg__axis">Social</p>
+            <p class="tag">Social</p>
             <p class="esg__figure">0,42</p>
             <p class="esg__label">Índice de frecuencia de accidentes con baja, 2025</p>
             <ul>
@@ -206,7 +195,7 @@
             </ul>
           </article>
           <article class="esg__item">
-            <p class="esg__axis">Gobierno corporativo</p>
+            <p class="tag">Gobierno corporativo</p>
             <p class="esg__figure">3 de 7</p>
             <p class="esg__label">Consejeros independientes en el Consejo de Administración</p>
             <ul>
@@ -218,7 +207,7 @@
         </div>
         <div class="row-end">
           <p class="source">Fuente: Reporte de Sostenibilidad 2025 de Grupo STF.</p>
-          <a class="link" href="#">Consultar el Reporte de Sostenibilidad 2025</a>
+          <a class="link" href="#">Consultar el Reporte de Sostenibilidad 2025 <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
         </div>
       </div>
     </section>
@@ -226,26 +215,27 @@
     <!-- Noticias -->
     <section class="band band--paper" id="noticias">
       <div class="wrap">
-        <header class="head head--split">
+        <header class="head">
           <div>
             <p class="overline">Sala de prensa</p>
             <h2>Noticias del Grupo</h2>
           </div>
-          <a class="link" href="#">Ver todas las noticias</a>
+          <a class="link" href="#">Ver todas las noticias <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
         </header>
         <div class="news">
-          <article class="news__item">
-            <p class="news__meta"><span>Industria</span><time datetime="2026-10-14">14 oct 2026</time></p>
+          <article class="news__item news__item--feature">
+            <svg class="news__symbol" viewBox="0 0 452 778" aria-hidden="true"><path class="sym-top" d="M0 0H112V211H452V323H112V485H0Z"/><path class="sym-bottom" d="M0 664H339V324H452V778H0Z"/></svg>
+            <p class="news__meta"><span class="tag">Industria</span><time datetime="2026-10-14">14 oct 2026</time></p>
             <h3><a href="#">Minerales y Triturados Odessa pone en marcha una nueva línea de producción</a></h3>
             <p>La inversión amplía la capacidad de la planta en 90.000 toneladas anuales.</p>
           </article>
           <article class="news__item">
-            <p class="news__meta"><span>Inmobiliario</span><time datetime="2026-09-02">2 sep 2026</time></p>
+            <p class="news__meta"><span class="tag">Inmobiliario</span><time datetime="2026-09-02">2 sep 2026</time></p>
             <h3><a href="#">Desarrollos Motrique inicia la construcción de un nuevo proyecto residencial</a></h3>
             <p>El proyecto incorpora criterios de eficiencia energética y áreas verdes comunes.</p>
           </article>
           <article class="news__item">
-            <p class="news__meta"><span>Sostenibilidad</span><time datetime="2026-07-21">21 jul 2026</time></p>
+            <p class="news__meta"><span class="tag">Sostenibilidad</span><time datetime="2026-07-21">21 jul 2026</time></p>
             <h3><a href="#">Grupo STF publica su Reporte de Sostenibilidad 2025</a></h3>
             <p>El informe detalla los avances en emisiones, seguridad laboral y proveeduría local.</p>
           </article>
@@ -254,90 +244,95 @@
     </section>
 
     <!-- Talento -->
-    <section class="band band--dark" id="talento">
-      <div class="wrap talent">
-        <div>
-          <p class="overline">Talento</p>
-          <h2>Forme parte de Grupo STF</h2>
-          <p class="subtitle">Buscamos profesionales para el corporativo y para nuestras empresas: operaciones industriales, comercial, logística, finanzas y dirección.</p>
-        </div>
+    <section class="band band--dark talent" id="talento">
+      <svg class="talent__symbol" viewBox="0 0 452 778" aria-hidden="true"><path class="sym-top" d="M0 0H112V211H452V323H112V485H0Z"/><path class="sym-bottom" d="M0 664H339V324H452V778H0Z"/></svg>
+      <div class="wrap talent__inner">
+        <p class="overline">Talento</p>
+        <h2>Forme parte de Grupo STF</h2>
+        <p class="subtitle">Buscamos profesionales para el corporativo y para nuestras empresas.</p>
+        <ul class="talent__areas" aria-label="Áreas con vacantes">
+          <li>Operaciones industriales</li><li>Comercial</li><li>Logística</li><li>Finanzas</li><li>Dirección</li>
+        </ul>
         <div class="talent__actions">
           <a class="btn btn--gold" href="#">Consultar vacantes</a>
-          <a class="btn btn--outline" href="#">Programa de prácticas</a>
+          <a class="btn btn--ghost" href="#">Programa de prácticas <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
         </div>
       </div>
     </section>
 
     <!-- Contacto -->
     <section class="band band--light" id="contacto">
-      <div class="wrap contact">
-        <div class="contact__info">
-          <p class="overline">Contacto</p>
-          <h2>Contacte al corporativo</h2>
-          <p class="subtitle">Su consulta se canaliza al área correspondiente en un plazo de un día hábil.</p>
-          <dl class="contact__list">
-            <div><dt>Oficina corporativa</dt><dd>[Dirección corporativa]</dd></div>
-            <div><dt>Teléfono</dt><dd>[+504 0000 0000]</dd></div>
-            <div><dt>Correo</dt><dd>[correo@dominio.com]</dd></div>
-          </dl>
+      <div class="wrap">
+        <div class="contact">
+          <div class="contact__info">
+            <p class="overline">Contacto</p>
+            <h2>Contacte al corporativo</h2>
+            <p class="subtitle">Su consulta se canaliza al área correspondiente en un plazo de un día hábil.</p>
+            <dl class="contact__list">
+              <div><dt>Oficina corporativa</dt><dd>[Dirección corporativa]</dd></div>
+              <div><dt>Teléfono</dt><dd>[+504 0000 0000]</dd></div>
+              <div><dt>Correo</dt><dd>[correo@dominio.com]</dd></div>
+            </dl>
+          </div>
+          <form class="form" id="contact-form" novalidate>
+            <div class="form__row">
+              <div class="field">
+                <label for="f-name">Nombre y apellido</label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required>
+                <p class="field__error" id="f-name-err"></p>
+              </div>
+              <div class="field">
+                <label for="f-company">Empresa o institución <span class="optional">(opcional)</span></label>
+                <input id="f-company" name="company" type="text" autocomplete="organization">
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="field">
+                <label for="f-email">Correo electrónico</label>
+                <input id="f-email" name="email" type="email" autocomplete="email" required>
+                <p class="field__error" id="f-email-err"></p>
+              </div>
+              <div class="field">
+                <label for="f-area">Asunto</label>
+                <select id="f-area" name="area" required>
+                  <option value="">Seleccione una opción</option>
+                  <option value="inversionistas">Inversionistas y banca</option>
+                  <option value="alianzas">Alianzas y nuevos negocios</option>
+                  <option value="proveedores">Proveedores</option>
+                  <option value="prensa">Prensa</option>
+                  <option value="talento">Talento</option>
+                  <option value="empresas">Consultas sobre nuestras empresas</option>
+                </select>
+                <p class="field__error" id="f-area-err"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-message">Mensaje</label>
+              <textarea id="f-message" name="message" rows="5" required></textarea>
+              <p class="field__error" id="f-message-err"></p>
+            </div>
+            <div class="field field--check">
+              <input id="f-consent" name="consent" type="checkbox" required>
+              <label for="f-consent">He leído y acepto el <a href="#">Aviso de Privacidad</a>.</label>
+              <p class="field__error" id="f-consent-err"></p>
+            </div>
+            <button class="btn btn--dark" type="submit">Enviar consulta <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
-
-        <form class="form" id="contact-form" novalidate>
-          <div class="form__row">
-            <div class="field">
-              <label for="f-name">Nombre y apellido</label>
-              <input id="f-name" name="name" type="text" autocomplete="name" required>
-              <p class="field__error" id="f-name-err"></p>
-            </div>
-            <div class="field">
-              <label for="f-company">Empresa o institución <span class="optional">(opcional)</span></label>
-              <input id="f-company" name="company" type="text" autocomplete="organization">
-            </div>
-          </div>
-          <div class="form__row">
-            <div class="field">
-              <label for="f-email">Correo electrónico</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" required>
-              <p class="field__error" id="f-email-err"></p>
-            </div>
-            <div class="field">
-              <label for="f-area">Asunto</label>
-              <select id="f-area" name="area" required>
-                <option value="">Seleccione una opción</option>
-                <option value="inversionistas">Inversionistas y banca</option>
-                <option value="alianzas">Alianzas y nuevos negocios</option>
-                <option value="proveedores">Proveedores</option>
-                <option value="prensa">Prensa</option>
-                <option value="talento">Talento</option>
-                <option value="empresas">Consultas sobre nuestras empresas</option>
-              </select>
-              <p class="field__error" id="f-area-err"></p>
-            </div>
-          </div>
-          <div class="field">
-            <label for="f-message">Mensaje</label>
-            <textarea id="f-message" name="message" rows="5" required></textarea>
-            <p class="field__error" id="f-message-err"></p>
-          </div>
-          <div class="field field--check">
-            <input id="f-consent" name="consent" type="checkbox" required>
-            <label for="f-consent">He leído y acepto el <a href="#">Aviso de Privacidad</a>.</label>
-            <p class="field__error" id="f-consent-err"></p>
-          </div>
-          <button class="btn btn--dark" type="submit">Enviar consulta</button>
-          <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
-        </form>
       </div>
     </section>
   </main>
 
   <!-- Pie de página -->
-  <footer class="footer band--dark">
+  <footer class="footer">
+    <svg class="footer__symbol" viewBox="0 0 452 778" aria-hidden="true"><path class="sym-top" d="M0 0H112V211H452V323H112V485H0Z"/><path class="sym-bottom" d="M0 664H339V324H452V778H0Z"/></svg>
     <div class="wrap footer__grid">
       <div class="footer__brand">
         <a class="logo" href="#top">
           <img src="assets/brand/grupo-stf-horizontal-negativo.svg" width="168" height="77" alt="Grupo STF">
         </a>
+        <p>Visión que transforma.</p>
       </div>
       <nav class="footer__col" aria-label="El Grupo">
         <h4>El Grupo</h4>
@@ -366,6 +361,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=10"></script>
+  <script src="js/main.js?v=11"></script>
 </body>
 </html>

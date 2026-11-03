@@ -48,12 +48,17 @@
 
     /* Aparición suave de bloques (el contenido ya es visible sin JS) */
     if (!reduceMotion) {
-      var revealSel = ".head, .intro__text, .essence__item, .values__list li, .company, .esg__item, .news__item, .form";
+      var revealSel = ".head, .statement, .essence__item, .values li, .company, .esg__item, .news__item, .talent__inner, .contact";
       var targets = document.querySelectorAll(revealSel);
       targets.selector = revealSel;
       var revealer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) { entry.target.classList.add("is-visible"); revealer.unobserve(entry.target); }
+          if (!entry.isIntersecting) return;
+          var el = entry.target;
+          el.classList.add("is-visible");
+          revealer.unobserve(el);
+          // Al terminar, se retira la clase para que el hover use sus propias transiciones
+          setTimeout(function () { el.classList.remove("reveal", "is-visible"); el.style.removeProperty("--i"); }, 1000);
         });
       }, { rootMargin: "0px 0px -8% 0px" });
       targets.forEach(function (el) {
