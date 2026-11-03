@@ -49,7 +49,7 @@
     /* Aparición suave de bloques (el contenido ya es visible sin JS) */
     if (!reduceMotion) {
       var targets = document.querySelectorAll(
-        ".head, .intro__text, .essence__item, .company, .steps li, .cut, .esg__item, .news__item, .form"
+        ".head, .intro__text, .essence__item, .company, .esg__item, .news__item, .form"
       );
       var revealer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {

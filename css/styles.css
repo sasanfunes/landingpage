@@ -262,40 +262,6 @@ body::before {
 .company__facts dd { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 1.5rem; color: var(--medianoche); line-height: 1.1; font-variant-numeric: tabular-nums; }
 .company .link { margin-top: auto; align-self: flex-start; }
 
-/* ---------- Modelo integrado ---------- */
-.model { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem 5rem; align-items: center; }
-.model__copy h2 { margin-bottom: 1.1rem; }
-.steps { counter-reset: step; margin-top: 2.4rem; display: grid; }
-.steps li {
-  counter-increment: step; display: grid; grid-template-columns: 3rem 1fr; column-gap: 1rem;
-  padding-block: 1.1rem; border-top: 1px solid var(--linea-oscura);
-}
-.steps li::before {
-  content: "0" counter(step); grid-row: span 2;
-  font-family: var(--font-display); font-weight: 400; font-size: 1.4rem; color: var(--oro); line-height: 1.2;
-}
-.steps h3 { font-size: 1.05rem; margin-bottom: .2rem; }
-.steps p { font-size: var(--fs-sm); }
-
-.cut { margin: 0; }
-.cut svg { width: 100%; height: auto; overflow: visible; }
-.cut figcaption { font-size: var(--fs-note); font-weight: 300; color: #8E98A6; border-top: 1px solid var(--linea-oscura); padding-top: .8rem; margin-top: .6rem; }
-.c-joint { fill: #2B3749; }
-.c-brick { fill: #46536A; }
-.c-brick-2 { fill: #3D4A60; }
-.c-render { fill: #8A919C; }
-.c-render-dot { fill: #6F7783; }
-.c-adhesive { fill: #B9BCC0; }
-.c-tile { fill: var(--marfil); }
-.c-tile-joint { fill: var(--niebla); }
-.cut-dim line { stroke: #8E98A6; stroke-width: 1; }
-.cut-dim text { font-family: var(--font-body); font-size: 11px; fill: #8E98A6; }
-.cut-label line { stroke: rgba(244, 241, 234, .5); stroke-width: 1; stroke-dasharray: 3 3; }
-.cut-label circle { fill: var(--marfil); stroke: var(--medianoche); stroke-width: 1.5; }
-.cut-label text { font-family: var(--font-display); font-size: 13px; font-weight: 500; fill: var(--marfil); }
-.cut-label text.sub { font-family: var(--font-body); font-size: 10.5px; font-weight: 400; fill: #A3ACB8; }
-.cut-label.is-accent circle { fill: var(--oro); }
-
 /* ---------- Sostenibilidad ---------- */
 .esg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
 .esg__item { background: var(--marfil-claro); border: 1px solid var(--niebla); padding: 2rem; display: flex; flex-direction: column; gap: .6rem; }
@@ -396,8 +362,6 @@ body::before {
 
 @media (max-width: 1080px) {
   .nav { gap: 1.5rem; }
-  .model { grid-template-columns: 1fr; }
-  .cut { max-width: 620px; }
   .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer__brand { grid-column: 1 / -1; }
 }
@@ -439,7 +403,6 @@ body::before {
   .figure { padding-right: .8rem; }
   .figure + .figure { padding-left: .8rem; }
   .figure:nth-child(3) { padding-left: 0; }
-  .cut svg { margin-inline: -8px; width: calc(100% + 16px); max-width: none; }
   .company__facts dd { font-size: 1.2rem; }
   .form__row { grid-template-columns: 1fr; }
   .values__list { grid-template-columns: 1fr; }
