@@ -48,9 +48,9 @@
 
     /* Aparición suave de bloques (el contenido ya es visible sin JS) */
     if (!reduceMotion) {
-      var targets = document.querySelectorAll(
-        ".head, .intro__text, .essence__item, .company, .esg__item, .news__item, .form"
-      );
+      var revealSel = ".head, .intro__text, .essence__item, .values__list li, .company, .esg__item, .news__item, .form";
+      var targets = document.querySelectorAll(revealSel);
+      targets.selector = revealSel;
       var revealer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) { entry.target.classList.add("is-visible"); revealer.unobserve(entry.target); }
@@ -59,6 +59,10 @@
       targets.forEach(function (el) {
         var r = el.getBoundingClientRect();
         if (r.top < window.innerHeight) return; // lo que ya está en pantalla no se oculta
+        // Escalonado: posición del elemento entre sus hermanos animados (máx. 5)
+        var i = 0, sib = el.previousElementSibling;
+        while (sib) { if (sib.matches(targets.selector)) i++; sib = sib.previousElementSibling; }
+        el.style.setProperty("--i", Math.min(i, 5));
         el.classList.add("reveal");
         revealer.observe(el);
       });
@@ -72,7 +76,7 @@
     function run(el) {
       var end = parseInt(el.dataset.count, 10);
       var start = performance.now();
-      var dur = 1400;
+      var dur = 1000;
       function tick(now) {
         var t = Math.min(1, (now - start) / dur);
         var eased = 1 - Math.pow(1 - t, 3);
