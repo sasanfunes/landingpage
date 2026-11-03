@@ -232,7 +232,7 @@ body::before {
 .essence__item h3 { font-size: 1.45rem; margin-bottom: .8rem; }
 .essence__item p { color: var(--grafito); max-width: 36rem; }
 
-.values { margin-top: clamp(3rem, 5vw, 4.5rem); border-top: 1px solid var(--oro); padding-top: 1.6rem; }
+.values { margin-top: clamp(3rem, 5vw, 4.5rem); }
 .values__title { font-size: 1.45rem; margin-bottom: 1.8rem; }
 .values__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--niebla); border: 1px solid var(--niebla); }
 .values__list li { background: var(--marfil-claro); padding: 1.6rem 1.6rem 1.8rem; display: grid; gap: .5rem; align-content: start; }
