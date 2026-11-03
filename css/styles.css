@@ -398,6 +398,10 @@ body::before {
 }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  .hero__symbol { height: 70%; opacity: .55; }
+}
+
 @media (max-width: 1080px) {
   .nav { gap: 1.5rem; }
   .model { grid-template-columns: 1fr; }
