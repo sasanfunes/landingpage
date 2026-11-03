@@ -247,6 +247,7 @@ body::before {
   border-bottom: 1px solid var(--niebla);
   background: var(--marfil-claro);
 }
+.company__logo img { width: 220px; max-width: 70%; height: auto; }
 .company__logo span {
   font-family: var(--font-body); font-size: var(--fs-note); letter-spacing: .14em; text-transform: uppercase;
   color: var(--pizarra); border: 1px dashed var(--niebla); padding: 1.1rem 1.6rem;
