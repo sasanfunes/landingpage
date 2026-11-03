@@ -8,7 +8,7 @@ Todos los elementos visuales siguen el **Manual de Marca de Grupo STF, v1.0 (oct
 |---|---|
 | Paleta | Azul Medianoche `#0F1B2D`, Marfil `#F4F1EA`, Oro Champán `#B59A6A`; apoyo: Grafito, Pizarra, Oro Profundo y Niebla. Las bandas oscuras y claras se alternan cerca de la proporción 55 / 30 / 10 / 5, y el dorado se usa solo como acento. No se usa blanco puro. |
 | Tipografía | Montserrat para titulares (Medium), subtítulos (Light) y cifras; Inter para texto, antetítulos (SemiBold en mayúsculas) y notas de fuente (Light). |
-| Logotipo | Versión horizontal positiva en el encabezado y negativa en el pie, a 160 px o más (tamaño mínimo digital), sin efectos. El favicon es el símbolo en negativo sobre Azul Medianoche. |
+| Logotipo | Versión horizontal positiva en el encabezado (140 px; 132 px en móvil) y negativa en el pie (168 px), sin efectos. Nota: el manual fija 160 px como tamaño mínimo digital; el encabezado quedó por debajo a pedido del cliente. El favicon es el símbolo en negativo sobre Azul Medianoche. |
 | Arquitectura de marca | Las empresas aparecen en monocromo y con el mismo peso visual, sin el emblema STF. Su pertenencia se indica solo en el texto legal del pie: «Empresa integrante de Grupo STF». |
 | Tono de voz | Trato de «usted», frases breves, sin superlativos, y cifras acompañadas de su fuente. |
 
