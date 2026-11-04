@@ -48,7 +48,7 @@
 
     /* Aparición suave de bloques (el contenido ya es visible sin JS) */
     if (!reduceMotion) {
-      var revealSel = ".head > p, .head > .link, .statement, .essence__item:not(.essence__item--dark), .values li, .company, .esg__item:not(.esg__item--feature), .news__item:not(.news__item--feature), .talent .subtitle, .talent__areas, .talent__actions, .form";
+      var revealSel = ".head > p, .head > .link, .statement, .essence__item:not(.essence__item--dark), .values li, .company, .news__item:not(.news__item--feature), .talent .subtitle, .talent__areas, .talent__actions, .jobs__bar, .job, .form";
       var targets = document.querySelectorAll(revealSel);
       targets.selector = revealSel;
       var revealer = new IntersectionObserver(function (entries) {
@@ -137,7 +137,7 @@
     });
 
     // Bloques oscuros que se abren como cortina
-    var wipes = document.querySelectorAll(".essence__item--dark, .esg__item--feature, .news__item--feature, .contact__info");
+    var wipes = document.querySelectorAll(".essence__item--dark, .news__item--feature, .contact__info");
     wipes.forEach(function (el) { el.classList.add("wipe"); });
 
     var inObs = new IntersectionObserver(function (entries) {
@@ -188,7 +188,7 @@
 
     // Luz que sigue al puntero en tarjetas
     if (finePointer) {
-      document.querySelectorAll(".company, .esg__item").forEach(function (card) {
+      document.querySelectorAll(".company, .job a").forEach(function (card) {
         card.addEventListener("pointermove", function (e) {
           var r = card.getBoundingClientRect();
           card.style.setProperty("--mx", (e.clientX - r.left) + "px");
@@ -202,6 +202,36 @@
   var areaSelect = document.getElementById("f-area");
   document.querySelectorAll("[data-area]").forEach(function (a) {
     a.addEventListener("click", function () { areaSelect.value = a.dataset.area; });
+  });
+
+  /* Vacantes: filtro por empresa y postulación */
+  var chips = document.querySelectorAll(".chip[data-filter]");
+  var jobs = Array.prototype.slice.call(document.querySelectorAll(".job"));
+  var jobsCount = document.getElementById("jobs-count");
+  var jobsEmpty = document.getElementById("jobs-empty");
+  function applyFilter(key) {
+    var shown = jobs.filter(function (j) { return key === "todas" || j.dataset.company === key; });
+    chips.forEach(function (c) { c.setAttribute("aria-pressed", String(c.dataset.filter === key)); });
+    var n = shown.length;
+    jobsCount.innerHTML = "<strong>" + n + "</strong> " + (n === 1 ? "vacante" : "vacantes");
+    function swap() {
+      jobs.forEach(function (j) { j.classList.remove("is-leaving", "is-entering"); j.hidden = shown.indexOf(j) === -1; });
+      if (!reduceMotion) shown.forEach(function (j, i) { j.style.setProperty("--i", i); void j.offsetWidth; j.classList.add("is-entering"); });
+      jobsEmpty.hidden = n > 0;
+    }
+    if (reduceMotion) { swap(); return; }
+    var leaving = jobs.filter(function (j) { return !j.hidden && shown.indexOf(j) === -1; });
+    leaving.forEach(function (j) { j.classList.add("is-leaving"); });
+    setTimeout(swap, leaving.length ? 160 : 0);
+  }
+  chips.forEach(function (c) { c.addEventListener("click", function () { applyFilter(c.dataset.filter); }); });
+
+  // Al elegir una vacante, el formulario queda listo para postular
+  document.querySelectorAll("[data-job]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      var msg = document.getElementById("f-message");
+      if (msg && !msg.value.trim()) msg.value = "Me interesa postular a la vacante: " + a.dataset.job + ".\n\n";
+    });
   });
 
   /* Formulario de contacto (validación del lado del cliente) */

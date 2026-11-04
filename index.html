@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
-  <link rel="stylesheet" href="css/styles.css?v=12">
+  <link rel="stylesheet" href="css/styles.css?v=13">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -41,8 +41,8 @@
       <nav class="nav" id="nav" aria-label="Principal">
         <a href="#grupo">El Grupo</a>
         <a href="#empresas">Empresas</a>
-        <a href="#sostenibilidad">Sostenibilidad</a>
         <a href="#noticias">Noticias</a>
+        <a href="#vacantes">Vacantes</a>
         <a class="btn btn--sm btn--dark" href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -170,55 +170,6 @@
       </div>
     </section>
 
-    <!-- Sostenibilidad -->
-    <section class="band band--light" id="sostenibilidad">
-      <div class="wrap">
-        <header class="head">
-          <div>
-            <p class="overline">Sostenibilidad</p>
-            <h2>Metas públicas, avances medibles</h2>
-          </div>
-          <p>La estrategia de sostenibilidad del Grupo se organiza en tres ejes, con metas al 2030 y un reporte anual elaborado bajo estándares GRI.</p>
-        </header>
-        <div class="esg">
-          <article class="esg__item esg__item--feature">
-            <p class="tag">Ambiental</p>
-            <p class="esg__figure">−<span data-count="18">18</span> %</p>
-            <p class="esg__label">Emisiones de CO₂ por tonelada producida, frente a 2019</p>
-            <ul>
-              <li>Formulaciones con adiciones minerales de menor huella</li>
-              <li>Recirculación del agua de proceso en planta</li>
-              <li>Programa de retorno de pallets y envases</li>
-            </ul>
-          </article>
-          <article class="esg__item">
-            <p class="tag">Social</p>
-            <p class="esg__figure">0,<span data-count="42" data-pad="2">42</span></p>
-            <p class="esg__label">Índice de frecuencia de accidentes con baja, 2025</p>
-            <ul>
-              <li>3.200 instaladores capacitados desde 2018</li>
-              <li>74 % de las compras a proveedores locales</li>
-              <li>Programa de voluntariado en vivienda comunitaria</li>
-            </ul>
-          </article>
-          <article class="esg__item">
-            <p class="tag">Gobierno corporativo</p>
-            <p class="esg__figure"><span data-count="3">3</span> de 7</p>
-            <p class="esg__label">Consejeros independientes en el Consejo de Administración</p>
-            <ul>
-              <li>Comités de Auditoría y de Prácticas Societarias</li>
-              <li>Código de Ética para todas las empresas</li>
-              <li>Certificaciones ISO 9001, 14001 y 45001 en planta</li>
-            </ul>
-          </article>
-        </div>
-        <div class="row-end">
-          <p class="source">Fuente: Reporte de Sostenibilidad 2025 de Grupo STF.</p>
-          <a class="link" href="#">Consultar el Reporte de Sostenibilidad 2025 <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
-        </div>
-      </div>
-    </section>
-
     <!-- Noticias -->
     <section class="band band--paper" id="noticias">
       <div class="wrap">
@@ -242,9 +193,9 @@
             <p>El proyecto incorpora criterios de eficiencia energética y áreas verdes comunes.</p>
           </article>
           <article class="news__item">
-            <p class="news__meta"><span class="tag">Sostenibilidad</span><time datetime="2026-07-21">21 jul 2026</time></p>
-            <h3><a href="#">Grupo STF publica su Reporte de Sostenibilidad 2025</a></h3>
-            <p>El informe detalla los avances en emisiones, seguridad laboral y proveeduría local.</p>
+            <p class="news__meta"><span class="tag">Servicios</span><time datetime="2026-07-21">21 jul 2026</time></p>
+            <h3><a href="#">Logística Integral amplía su red de distribución con un nuevo centro logístico</a></h3>
+            <p>El nuevo centro reduce los tiempos de entrega en la zona norte del país.</p>
           </article>
         </div>
       </div>
@@ -261,8 +212,78 @@
           <li>Operaciones industriales</li><li>Comercial</li><li>Logística</li><li>Finanzas</li><li>Dirección</li>
         </ul>
         <div class="talent__actions">
-          <a class="btn btn--gold" href="#">Consultar vacantes</a>
+          <a class="btn btn--gold" href="#vacantes">Consultar vacantes</a>
           <a class="btn btn--ghost" href="#">Programa de prácticas <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vacantes -->
+    <section class="band band--paper" id="vacantes">
+      <div class="wrap">
+        <header class="head">
+          <div>
+            <p class="overline">Vacantes</p>
+            <h2>Oportunidades abiertas</h2>
+          </div>
+          <p>Posiciones disponibles en el corporativo y en nuestras empresas. Seleccione una vacante para enviarnos su postulación.</p>
+        </header>
+        <div class="jobs">
+          <div class="jobs__bar">
+            <div class="jobs__filters" role="group" aria-label="Filtrar vacantes por empresa"><button type="button" class="chip" data-filter="todas" aria-pressed="true">Todas</button><button type="button" class="chip" data-filter="corporativo" aria-pressed="false">Corporativo</button><button type="button" class="chip" data-filter="odessa" aria-pressed="false">Odessa</button><button type="button" class="chip" data-filter="motrique" aria-pressed="false">Motrique</button><button type="button" class="chip" data-filter="logistica" aria-pressed="false">Logística Integral</button><button type="button" class="chip" data-filter="global" aria-pressed="false">Global Trade</button></div>
+            <p class="jobs__count" id="jobs-count" aria-live="polite"><strong>6</strong> vacantes</p>
+          </div>
+          <ul class="jobs__list" id="jobs-list">
+            <li class="job" data-company="odessa">
+              <a href="#contacto" data-area="talento" data-job="Jefatura de Producción">
+                <span class="job__title">Jefatura de Producción</span>
+                <span class="job__company">Minerales y Triturados Odessa</span>
+                <span class="job__meta">San Pedro Sula · Tiempo completo</span>
+                <span class="job__cta">Postular <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+              </a>
+            </li>
+            <li class="job" data-company="odessa">
+              <a href="#contacto" data-area="talento" data-job="Analista de Control de Calidad">
+                <span class="job__title">Analista de Control de Calidad</span>
+                <span class="job__company">Minerales y Triturados Odessa</span>
+                <span class="job__meta">San Pedro Sula · Tiempo completo</span>
+                <span class="job__cta">Postular <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+              </a>
+            </li>
+            <li class="job" data-company="motrique">
+              <a href="#contacto" data-area="talento" data-job="Gerencia de Proyectos Inmobiliarios">
+                <span class="job__title">Gerencia de Proyectos Inmobiliarios</span>
+                <span class="job__company">Desarrollos Motrique</span>
+                <span class="job__meta">Tegucigalpa · Tiempo completo</span>
+                <span class="job__cta">Postular <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+              </a>
+            </li>
+            <li class="job" data-company="logistica">
+              <a href="#contacto" data-area="talento" data-job="Coordinación de Operaciones Logísticas">
+                <span class="job__title">Coordinación de Operaciones Logísticas</span>
+                <span class="job__company">Logística Integral</span>
+                <span class="job__meta">San Pedro Sula · Tiempo completo</span>
+                <span class="job__cta">Postular <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+              </a>
+            </li>
+            <li class="job" data-company="global">
+              <a href="#contacto" data-area="talento" data-job="Especialista en Comercio Exterior">
+                <span class="job__title">Especialista en Comercio Exterior</span>
+                <span class="job__company">Global Trade</span>
+                <span class="job__meta">Tegucigalpa · Tiempo completo</span>
+                <span class="job__cta">Postular <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+              </a>
+            </li>
+            <li class="job" data-company="corporativo">
+              <a href="#contacto" data-area="talento" data-job="Analista de Finanzas Corporativas">
+                <span class="job__title">Analista de Finanzas Corporativas</span>
+                <span class="job__company">Grupo STF · Corporativo</span>
+                <span class="job__meta">Tegucigalpa · Tiempo completo</span>
+                <span class="job__cta">Postular <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+              </a>
+            </li>
+          </ul>
+          <p class="jobs__empty" id="jobs-empty" hidden>No hay vacantes abiertas en esta empresa por ahora. Puede enviarnos su CV para futuras oportunidades.</p>
         </div>
       </div>
     </section>
@@ -345,7 +366,7 @@
         <h4>El Grupo</h4>
         <a href="#grupo">Quiénes somos</a>
         <a href="#empresas">Empresas</a>
-        <a href="#sostenibilidad">Sostenibilidad</a>
+        <a href="#vacantes">Vacantes</a>
         <a href="#noticias">Sala de prensa</a>
       </nav>
       <nav class="footer__col" aria-label="Contacto">
@@ -368,6 +389,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=12"></script>
+  <script src="js/main.js?v=13"></script>
 </body>
 </html>
