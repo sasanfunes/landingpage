@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
-  <link rel="stylesheet" href="css/styles.css?v=18">
+  <link rel="stylesheet" href="css/styles.css?v=19">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -30,11 +30,10 @@
   </div>
 
   <!-- Encabezado -->
-  <header class="header" id="top">
+  <header class="header is-dark" id="top">
     <div class="wrap header__inner">
       <a class="logo" href="#top">
-        <img class="logo__img logo__img--pos" src="assets/brand/grupo-stf-horizontal.svg" width="120" height="55" alt="Grupo STF">
-        <img class="logo__img logo__img--neg" src="assets/brand/grupo-stf-horizontal-negativo.svg" width="120" height="55" alt="" aria-hidden="true">
+        <img class="logo__img" src="assets/brand/grupo-stf-horizontal-negativo.svg" width="120" height="55" alt="Grupo STF">
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
         <span></span><span></span><span></span>
@@ -44,7 +43,7 @@
         <a href="#empresas">Empresas</a>
         <a href="#noticias">Noticias</a>
         <a href="#vacantes">Vacantes</a>
-        <a class="btn btn--sm btn--dark" href="#contacto">Contacto</a>
+        <a class="btn btn--sm btn--gold" href="#contacto">Contacto</a>
       </nav>
     </div>
     <div class="progress" aria-hidden="true"><span></span></div>
@@ -87,7 +86,7 @@
     </div>
 
     <!-- El Grupo -->
-    <section class="band band--light" id="grupo">
+    <section class="band" id="grupo">
       <div class="wrap split">
         <header class="split__aside">
           <p class="overline">El Grupo</p>
@@ -97,7 +96,7 @@
           <p class="statement"><strong>En Grupo STF construimos el futuro desde hoy.</strong> Somos un corporativo diversificado que combina experiencia, visión y talento para desarrollar empresas sólidas, competitivas y preparadas para los retos de un mundo en constante cambio.</p>
 
           <div class="essence">
-            <article class="essence__item essence__item--dark">
+            <article class="essence__item">
               <p class="tag">Propósito</p>
               <p>Impulsar el crecimiento de empresas que generen valor real para las personas, las industrias y las comunidades donde participamos.</p>
             </article>
@@ -121,7 +120,7 @@
     </section>
 
     <!-- Empresas -->
-    <section class="band band--dark" id="empresas">
+    <section class="band" id="empresas">
       <div class="wrap">
         <header class="head">
           <div>
@@ -132,7 +131,7 @@
         </header>
         <div class="companies">
           <article class="company">
-            <div class="company__logo"><img class="is-tall" src="assets/empresas/odessa-original.png" width="677" height="747" alt="Odessa Minerales &amp; Triturados"></div>
+            <div class="company__logo"><img class="is-tall" src="assets/empresas/odessa-negativo.png" width="700" height="765" alt="Odessa Minerales &amp; Triturados"></div>
             <div class="company__body">
               <p class="tag">Industria · Fábrica de morteros</p>
               <h3>Minerales y Triturados Odessa</h3>
@@ -150,7 +149,7 @@
             <a class="company__cta" href="#"><span>Visitar sitio de la empresa</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
           </article>
           <article class="company">
-            <div class="company__logo"><img src="assets/empresas/logistica-integral-color.svg" width="220" height="52" alt="Logística Integral"></div>
+            <div class="company__logo"><img src="assets/empresas/logistica-integral-negativo.svg" width="220" height="52" alt="Logística Integral"></div>
             <div class="company__body">
               <p class="tag">Servicios · Empresa logística</p>
               <h3>Logística Integral</h3>
@@ -172,7 +171,7 @@
     </section>
 
     <!-- Noticias -->
-    <section class="band band--light" id="noticias">
+    <section class="band" id="noticias">
       <div class="wrap">
         <header class="head">
           <div>
@@ -182,8 +181,7 @@
           <a class="link" href="#">Ver todas las noticias <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
         </header>
         <div class="news">
-          <article class="news__item news__item--feature">
-            <svg class="news__symbol" viewBox="0 0 452 778" aria-hidden="true"><path class="sym-top" d="M0 0H112V211H452V323H112V485H0Z"/><path class="sym-bottom" d="M0 664H339V324H452V778H0Z"/></svg>
+          <article class="news__item news__item--lead">
             <p class="news__meta"><span class="tag">Industria</span><time datetime="2026-10-14">14 oct 2026</time></p>
             <h3><a href="#">Minerales y Triturados Odessa pone en marcha una nueva línea de producción</a></h3>
             <p>La inversión amplía la capacidad de la planta en 90.000 toneladas anuales.</p>
@@ -203,7 +201,7 @@
     </section>
 
     <!-- Vacantes -->
-    <section class="band band--dark vacancies" id="vacantes">
+    <section class="band vacancies" id="vacantes">
       <svg class="jobs__symbol" viewBox="0 0 452 778" aria-hidden="true"><path class="sym-top" d="M0 0H112V211H452V323H112V485H0Z"/><path class="sym-bottom" d="M0 664H339V324H452V778H0Z"/></svg>
       <div class="wrap">
         <header class="head">
@@ -277,7 +275,7 @@
     </section>
 
     <!-- Contacto -->
-    <section class="band band--light" id="contacto">
+    <section class="band" id="contacto">
       <div class="wrap">
         <div class="contact">
           <div class="contact__info">
@@ -332,7 +330,7 @@
               <label for="f-consent">He leído y acepto el <a href="#">Aviso de Privacidad</a>.</label>
               <p class="field__error" id="f-consent-err"></p>
             </div>
-            <button class="btn btn--dark" type="submit">Enviar consulta <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <button class="btn btn--gold" type="submit">Enviar consulta <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
             <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -377,6 +375,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=18"></script>
+  <script src="js/main.js?v=19"></script>
 </body>
 </html>

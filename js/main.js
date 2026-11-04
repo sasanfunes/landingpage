@@ -48,7 +48,7 @@
 
     /* Aparición suave de bloques (el contenido ya es visible sin JS) */
     if (!reduceMotion) {
-      var revealSel = ".head > p, .head > .link, .statement, .essence__item:not(.essence__item--dark), .values li, .company, .news__item:not(.news__item--feature), .head__side, .jobs__bar, .job, .form";
+      var revealSel = ".head > p, .head > .link, .statement, .essence__item, .values li, .company, .news__item:not(.news__item--lead), .head__side, .jobs__bar, .job, .form";
       var targets = document.querySelectorAll(revealSel);
       targets.selector = revealSel;
       var revealer = new IntersectionObserver(function (entries) {
@@ -106,7 +106,6 @@
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   var progressBar = document.querySelector(".progress span");
   var lastY = window.scrollY, ticking = false;
-  var darkZones = Array.prototype.slice.call(document.querySelectorAll(".hero, .band--dark, .footer"));
 
   // Progreso de lectura y encabezado que se oculta al bajar
   function onFrame() {
@@ -117,10 +116,6 @@
       if (y > lastY + 6 && y > 420) header.classList.add("is-hidden");
       else if (y < lastY - 6 || y < 420) header.classList.remove("is-hidden");
     }
-    // Tono de la barra según la sección que pasa por debajo
-    var probe = header.getBoundingClientRect().top + 14 + 38;
-    var dark = darkZones.some(function (z) { var r = z.getBoundingClientRect(); return r.top <= probe && r.bottom >= probe; });
-    header.classList.toggle("is-dark", dark);
     lastY = y;
     ticking = false;
   }
@@ -144,7 +139,7 @@
     });
 
     // Bloques oscuros que se abren como cortina
-    var wipes = document.querySelectorAll(".essence__item--dark, .news__item--feature, .contact__info");
+    var wipes = document.querySelectorAll(".company__logo, .news__item--lead");
     wipes.forEach(function (el) { el.classList.add("wipe"); });
 
     var inObs = new IntersectionObserver(function (entries) {
