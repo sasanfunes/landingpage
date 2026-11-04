@@ -502,3 +502,103 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   .form .btn { justify-self: stretch; }
   .footer__legal { flex-direction: column; align-items: flex-start; }
 }
+
+/* =========================================================
+   Dinamismo
+   Movimiento con propósito: entradas que guían la lectura,
+   profundidad en el hero y respuesta a la interacción.
+   Todo usa transform, opacity o clip-path.
+   ========================================================= */
+
+/* Progreso de lectura: filete dorado bajo el encabezado */
+.progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; pointer-events: none; }
+.progress span { display: block; height: 100%; background: var(--oro); transform: scaleX(0); transform-origin: left; will-change: transform; }
+
+/* El encabezado se oculta al bajar y vuelve al subir */
+.header { transition: transform 320ms var(--ease-out), border-color 200ms ease, background-color 200ms ease; }
+.header.is-hidden { transform: translateY(-100%); }
+
+/* Titular del hero: cada línea sube desde una máscara */
+.hero__title .line { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
+.hero__title .line > span { display: block; }
+
+/* Profundidad del símbolo: los módulos se desplazan con distinta intensidad */
+.hero__symbol { overflow: visible; }
+.hero__symbol g { will-change: transform; }
+
+/* Cinta del portafolio */
+.ticker {
+  display: flex; overflow: hidden; background: var(--marfil); border-bottom: 1px solid var(--niebla);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.ticker__track { display: flex; flex: none; align-items: center; gap: 0; padding-block: 1.6rem; }
+.ticker li { display: flex; align-items: baseline; gap: .9rem; padding-inline: 2.4rem; white-space: nowrap; }
+.ticker li::after { content: ""; width: 7px; height: 7px; background: var(--oro); margin-left: 2.4rem; align-self: center; }
+.ticker span { font-family: var(--font-display); font-weight: 300; font-size: clamp(1.3rem, 1rem + 1.2vw, 2.1rem); color: var(--medianoche); letter-spacing: -.01em; }
+.ticker small { font-size: var(--fs-over); font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--oro-profundo); }
+
+/* Botón dorado: barrido de luz al pasar el mouse */
+.btn { position: relative; overflow: hidden; isolation: isolate; }
+.btn--gold::before, .btn--dark::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  clip-path: inset(0 100% 0 0); transition: clip-path 320ms var(--ease-out);
+}
+.btn--gold::before { background: #C9B48D; }
+.btn--dark::before { background: var(--grafito); }
+
+/* Luz que sigue al puntero en tarjetas */
+.company, .values li, .esg__item { --mx: 50%; --my: 50%; }
+.company::before, .esg__item:not(.esg__item--feature)::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(181, 154, 106, .14), transparent 60%);
+  transition: opacity 300ms ease;
+}
+.esg__item { position: relative; }
+
+/* Cifras de sostenibilidad */
+.esg__figure span { font-variant-numeric: tabular-nums; }
+
+@media (hover: hover) and (pointer: fine) {
+  .btn--gold:hover::before, .btn--dark:hover::before { clip-path: inset(0 0 0 0); }
+  .company:hover::before, .esg__item:hover::before { opacity: 1; }
+  .ticker:hover .ticker__track { animation-play-state: paused; }
+}
+/* El barrido reemplaza el cambio plano de color */
+@media (hover: hover) and (pointer: fine) {
+  .btn--gold:hover { background: var(--oro); }
+  .btn--dark:hover { background: var(--medianoche); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Titular: líneas con máscara */
+  .hero__inner > .hero__title { animation: none; }
+  .hero__title .line > span { animation: line-up 1000ms var(--ease-out) backwards; }
+  .hero__title .line:nth-child(2) > span { animation-delay: 110ms; }
+  @keyframes line-up { from { transform: translateY(105%); } }
+
+  /* Cinta en movimiento continuo: lineal */
+  .ticker__track { animation: ticker 48s linear infinite; }
+  @keyframes ticker { to { transform: translateX(-100%); } }
+
+  /* Titulares de sección: palabras que suben en cascada */
+  .js .words .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .1em; margin-bottom: -.1em; }
+  .js .words .w > span { display: inline-block; transform: translateY(105%); transition: transform 800ms var(--ease-out); transition-delay: calc(var(--w, 0) * 45ms); }
+  .js .words.is-in .w > span { transform: none; }
+
+  /* Bloques oscuros: cortina que se abre de abajo hacia arriba */
+  .js .wipe { clip-path: inset(100% 0 0 0); transition: clip-path 1000ms var(--ease-in-out); }
+  .js .wipe.is-in { clip-path: inset(0 0 0 0); }
+  .js .wipe > * { opacity: 0; transform: translateY(16px); transition: opacity 600ms var(--ease-out) 450ms, transform 600ms var(--ease-out) 450ms; }
+  .js .wipe.is-in > * { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker { -webkit-mask-image: none; mask-image: none; }
+  .ticker__track[aria-hidden="true"] { display: none; }
+  .ticker__track { flex-wrap: wrap; justify-content: center; }
+  .progress { display: none; }
+}
+@media (max-width: 600px) {
+  .ticker li { padding-inline: 1.4rem; }
+  .ticker li::after { margin-left: 1.4rem; }
+}

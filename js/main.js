@@ -48,7 +48,7 @@
 
     /* Aparición suave de bloques (el contenido ya es visible sin JS) */
     if (!reduceMotion) {
-      var revealSel = ".head, .statement, .essence__item, .values li, .company, .esg__item, .news__item, .talent__inner, .contact";
+      var revealSel = ".head > p, .head > .link, .statement, .essence__item:not(.essence__item--dark), .values li, .company, .esg__item:not(.esg__item--feature), .news__item:not(.news__item--feature), .talent .subtitle, .talent__areas, .talent__actions, .form";
       var targets = document.querySelectorAll(revealSel);
       targets.selector = revealSel;
       var revealer = new IntersectionObserver(function (entries) {
@@ -80,12 +80,14 @@
     }
     function run(el) {
       var end = parseInt(el.dataset.count, 10);
+      var pad = parseInt(el.dataset.pad || "0", 10);
       var start = performance.now();
       var dur = 1000;
       function tick(now) {
         var t = Math.min(1, (now - start) / dur);
         var eased = 1 - Math.pow(1 - t, 3);
-        el.textContent = format(Math.round(end * eased), el);
+        var v = format(Math.round(end * eased), el);
+        el.textContent = pad ? v.padStart(pad, "0") : v;
         if (t < 1) requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
@@ -97,6 +99,102 @@
         });
       }, { threshold: .6 });
       counters.forEach(function (c) { counterObs.observe(c); });
+    }
+  }
+
+  /* ---------- Dinamismo ---------- */
+  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var progressBar = document.querySelector(".progress span");
+  var lastY = window.scrollY, ticking = false;
+
+  // Progreso de lectura y encabezado que se oculta al bajar
+  function onFrame() {
+    var y = window.scrollY;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if (progressBar) progressBar.style.transform = "scaleX(" + (max > 0 ? Math.min(1, y / max) : 0) + ")";
+    if (!nav.classList.contains("is-open")) {
+      if (y > lastY + 6 && y > 420) header.classList.add("is-hidden");
+      else if (y < lastY - 6 || y < 420) header.classList.remove("is-hidden");
+    }
+    lastY = y;
+    ticking = false;
+  }
+  window.addEventListener("scroll", function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(onFrame); }
+  }, { passive: true });
+  header.addEventListener("focusin", function () { header.classList.remove("is-hidden"); });
+
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    // Titulares de sección: se dividen en palabras
+    var heads = document.querySelectorAll(".head h2, .split__aside h2, .talent h2, .contact__info h2");
+    heads.forEach(function (h) {
+      var text = h.textContent.trim();
+      h.setAttribute("aria-label", text);
+      h.innerHTML = text.split(/\s+/).map(function (word, i) {
+        return '<span class="w" aria-hidden="true" style="--w:' + i + '"><span>' + word + "</span></span>";
+      }).join(" ");
+      h.classList.add("words");
+    });
+
+    // Bloques oscuros que se abren como cortina
+    var wipes = document.querySelectorAll(".essence__item--dark, .esg__item--feature, .news__item--feature, .contact__info");
+    wipes.forEach(function (el) { el.classList.add("wipe"); });
+
+    var inObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        el.classList.add("is-in");
+        inObs.unobserve(el);
+        // Los titulares dentro de una cortina entran cuando esta se abre
+        if (el.classList.contains("wipe")) {
+          setTimeout(function () { el.querySelectorAll(".words").forEach(function (h) { h.classList.add("is-in"); }); }, 350);
+        }
+      });
+    }, { rootMargin: "0px 0px -12% 0px" });
+    heads.forEach(function (h) { if (!h.closest(".wipe")) inObs.observe(h); });
+    wipes.forEach(function (w) { inObs.observe(w); });
+
+    // Profundidad del hero: el símbolo responde al scroll y al puntero con un muelle suave
+    var hero = document.querySelector(".hero");
+    var mTop = document.querySelector(".hero__symbol .m-top");
+    var mBottom = document.querySelector(".hero__symbol .m-bottom");
+    if (hero && mTop && mBottom && getComputedStyle(document.querySelector(".hero__art")).display !== "none") {
+      var target = { x: 0, y: 0 }, cur = { x: 0, y: 0 }, heroVisible = true, raf = null;
+      function loop() {
+        cur.x += (target.x - cur.x) * 0.08;
+        cur.y += (target.y - cur.y) * 0.08;
+        var s = Math.min(window.scrollY, hero.offsetHeight);
+        // El símbolo se mueve como una sola pieza: sus módulos nunca se separan
+        var t = "translate(" + (cur.x * 18) + "px," + (cur.y * 18 - s * 0.12) + "px)";
+        mTop.style.transform = t;
+        mBottom.style.transform = t;
+        var settled = Math.abs(target.x - cur.x) < 0.001 && Math.abs(target.y - cur.y) < 0.001;
+        raf = settled ? null : requestAnimationFrame(loop);
+      }
+      function kick() { if (!raf && heroVisible) raf = requestAnimationFrame(loop); }
+      if (finePointer) {
+        hero.addEventListener("pointermove", function (e) {
+          var r = hero.getBoundingClientRect();
+          target.x = (e.clientX - r.left) / r.width - 0.5;
+          target.y = (e.clientY - r.top) / r.height - 0.5;
+          kick();
+        });
+        hero.addEventListener("pointerleave", function () { target.x = 0; target.y = 0; kick(); });
+      }
+      window.addEventListener("scroll", function () { cur.x += 0.0011; kick(); }, { passive: true });
+      new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; kick(); }).observe(hero);
+    }
+
+    // Luz que sigue al puntero en tarjetas
+    if (finePointer) {
+      document.querySelectorAll(".company, .esg__item").forEach(function (card) {
+        card.addEventListener("pointermove", function (e) {
+          var r = card.getBoundingClientRect();
+          card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+          card.style.setProperty("--my", (e.clientY - r.top) + "px");
+        });
+      });
     }
   }
 

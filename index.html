@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
-  <link rel="stylesheet" href="css/styles.css?v=11">
+  <link rel="stylesheet" href="css/styles.css?v=12">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -46,6 +46,7 @@
         <a class="btn btn--sm btn--dark" href="#contacto">Contacto</a>
       </nav>
     </div>
+    <div class="progress" aria-hidden="true"><span></span></div>
   </header>
 
   <main id="contenido">
@@ -56,7 +57,7 @@
       <div class="wrap hero__grid">
         <div class="hero__inner">
           <p class="overline">Grupo STF Honduras</p>
-          <h1 class="hero__title">Visión que<br>transforma.</h1>
+          <h1 class="hero__title" aria-label="Visión que transforma."><span class="line" aria-hidden="true"><span>Visión que</span></span><span class="line" aria-hidden="true"><span>transforma.</span></span></h1>
           <p class="hero__sub">Innovamos hoy para construir el mañana. Unimos experiencia, talento y tecnología para impulsar el desarrollo de cada una de nuestras empresas.</p>
           <div class="hero__actions">
             <a class="btn btn--gold" href="#empresas">Conozca nuestras empresas</a>
@@ -64,7 +65,7 @@
           </div>
         </div>
         <div class="hero__art" aria-hidden="true">
-          <svg class="hero__symbol" viewBox="0 0 452 778"><path class="sym-top" d="M0 0H112V211H452V323H112V485H0Z"/><path class="sym-bottom" d="M0 664H339V324H452V778H0Z"/></svg>
+          <svg class="hero__symbol" viewBox="0 0 452 778"><g class="m-top"><path class="sym-top" d="M0 0H112V211H452V323H112V485H0Z"/></g><g class="m-bottom"><path class="sym-bottom" d="M0 664H339V324H452V778H0Z"/></g></svg>
         </div>
       </div>
       <div class="wrap">
@@ -77,6 +78,12 @@
         <p class="source">Fuente: Dirección de Finanzas Corporativas, cifras al cierre de 2025.</p>
       </div>
     </section>
+
+    <!-- Portafolio en movimiento -->
+    <div class="ticker" aria-label="Empresas de Grupo STF">
+      <ul class="ticker__track"><li><span>Minerales y Triturados Odessa</span><small>Industria</small></li><li><span>Desarrollos Motrique</span><small>Inmobiliario</small></li><li><span>Logística Integral</span><small>Servicios</small></li><li><span>Global Trade</span><small>Comercio</small></li><li><span>Minerales y Triturados Odessa</span><small>Industria</small></li><li><span>Desarrollos Motrique</span><small>Inmobiliario</small></li><li><span>Logística Integral</span><small>Servicios</small></li><li><span>Global Trade</span><small>Comercio</small></li></ul>
+      <ul class="ticker__track" aria-hidden="true"><li><span>Minerales y Triturados Odessa</span><small>Industria</small></li><li><span>Desarrollos Motrique</span><small>Inmobiliario</small></li><li><span>Logística Integral</span><small>Servicios</small></li><li><span>Global Trade</span><small>Comercio</small></li><li><span>Minerales y Triturados Odessa</span><small>Industria</small></li><li><span>Desarrollos Motrique</span><small>Inmobiliario</small></li><li><span>Logística Integral</span><small>Servicios</small></li><li><span>Global Trade</span><small>Comercio</small></li></ul>
+    </div>
 
     <!-- El Grupo -->
     <section class="band band--light" id="grupo">
@@ -176,7 +183,7 @@
         <div class="esg">
           <article class="esg__item esg__item--feature">
             <p class="tag">Ambiental</p>
-            <p class="esg__figure">−18 %</p>
+            <p class="esg__figure">−<span data-count="18">18</span> %</p>
             <p class="esg__label">Emisiones de CO₂ por tonelada producida, frente a 2019</p>
             <ul>
               <li>Formulaciones con adiciones minerales de menor huella</li>
@@ -186,7 +193,7 @@
           </article>
           <article class="esg__item">
             <p class="tag">Social</p>
-            <p class="esg__figure">0,42</p>
+            <p class="esg__figure">0,<span data-count="42" data-pad="2">42</span></p>
             <p class="esg__label">Índice de frecuencia de accidentes con baja, 2025</p>
             <ul>
               <li>3.200 instaladores capacitados desde 2018</li>
@@ -196,7 +203,7 @@
           </article>
           <article class="esg__item">
             <p class="tag">Gobierno corporativo</p>
-            <p class="esg__figure">3 de 7</p>
+            <p class="esg__figure"><span data-count="3">3</span> de 7</p>
             <p class="esg__label">Consejeros independientes en el Consejo de Administración</p>
             <ul>
               <li>Comités de Auditoría y de Prácticas Societarias</li>
@@ -361,6 +368,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=11"></script>
+  <script src="js/main.js?v=12"></script>
 </body>
 </html>
