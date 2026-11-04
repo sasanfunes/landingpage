@@ -267,13 +267,14 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 /* ---------- Empresas ---------- */
 .companies { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.company {
-  position: relative; display: grid; grid-template-rows: auto 1fr auto;
+.company { min-width: 0;
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr auto;
   background: var(--marfil-claro); color: var(--grafito);
   transition: transform 260ms var(--ease-out);
 }
-.company__logo { display: grid; place-items: center; aspect-ratio: 16 / 6; max-width: 100%; border-bottom: 1px solid var(--niebla); padding: 1.5rem; }
+.company__logo { display: grid; place-items: center; min-height: clamp(180px, 16vw, 230px); max-width: 100%; border-bottom: 1px solid var(--niebla); padding: 1.5rem; }
 .company__logo img { width: 220px; max-width: 70%; height: auto; }
+.company__logo img.is-tall { width: auto; height: clamp(110px, 9vw + 40px, 150px); max-width: 60%; object-fit: contain; }
 .company__placeholder { font-size: var(--fs-note); letter-spacing: .14em; text-transform: uppercase; color: var(--pizarra); border: 1px dashed var(--niebla); padding: 1rem 1.5rem; }
 .company__body { padding: clamp(1.5rem, 3vw, 2.2rem) clamp(1.5rem, 3vw, 2.2rem) 1.5rem; display: grid; gap: .8rem; align-content: start; }
 .company .tag { color: var(--pizarra); letter-spacing: .16em; }
@@ -465,7 +466,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .head { grid-template-columns: 1fr; }
   .head > p, .head > .link { justify-self: start; }
-  .companies, .essence, .news, .contact { grid-template-columns: 1fr; }
+  .companies, .essence, .news, .contact { grid-template-columns: minmax(0, 1fr); }
   .news__item--feature { grid-row: auto; min-height: 340px; }
   .values { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .talent__symbol { opacity: .6; right: -20%; }
