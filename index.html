@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
-  <link rel="stylesheet" href="css/styles.css?v=19">
+  <link rel="stylesheet" href="css/styles.css?v=20">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -30,10 +30,11 @@
   </div>
 
   <!-- Encabezado -->
-  <header class="header is-dark" id="top">
+  <header class="header" id="top">
     <div class="wrap header__inner">
       <a class="logo" href="#top">
-        <img class="logo__img" src="assets/brand/grupo-stf-horizontal-negativo.svg" width="120" height="55" alt="Grupo STF">
+        <img class="logo__img logo__img--pos" src="assets/brand/grupo-stf-horizontal.svg" width="120" height="55" alt="Grupo STF">
+        <img class="logo__img logo__img--neg" src="assets/brand/grupo-stf-horizontal-negativo.svg" width="120" height="55" alt="" aria-hidden="true">
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
         <span></span><span></span><span></span>
@@ -129,7 +130,7 @@
           </div>
           <p>Cada empresa conserva su nombre, su logotipo y su sistema visual. El corporativo aporta gobierno, financiamiento y estrategia.</p>
         </header>
-        <div class="companies">
+        <div class="companies tone-dark">
           <article class="company">
             <div class="company__logo"><img class="is-tall" src="assets/empresas/odessa-negativo.png" width="700" height="765" alt="Odessa Minerales &amp; Triturados"></div>
             <div class="company__body">
@@ -288,7 +289,7 @@
               <div><dt>Correo</dt><dd>[correo@dominio.com]</dd></div>
             </dl>
           </div>
-          <form class="form" id="contact-form" novalidate>
+          <form class="form tone-dark" id="contact-form" novalidate>
             <div class="form__row">
               <div class="field">
                 <label for="f-name">Nombre y apellido</label>
@@ -339,7 +340,7 @@
   </main>
 
   <!-- Pie de página -->
-  <footer class="footer">
+  <footer class="footer tone-dark">
     <svg class="footer__symbol" viewBox="0 0 452 778" aria-hidden="true"><path class="sym-top" d="M0 0H112V211H452V323H112V485H0Z"/><path class="sym-bottom" d="M0 664H339V324H452V778H0Z"/></svg>
     <div class="wrap footer__grid">
       <div class="footer__brand">
@@ -375,6 +376,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=19"></script>
+  <script src="js/main.js?v=20"></script>
 </body>
 </html>

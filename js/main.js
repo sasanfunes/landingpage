@@ -116,6 +116,20 @@
       if (y > lastY + 6 && y > 420) header.classList.add("is-hidden");
       else if (y < lastY - 6 || y < 420) header.classList.remove("is-hidden");
     }
+    // La barra cambia a vidrio oscuro cuando pasa sobre un módulo azul
+    var hb = header.querySelector(".header__inner").getBoundingClientRect();
+    var probeY = 14 + hb.height / 2; // posición de la barra visible, aunque esté oculta
+    var probes = [hb.left + hb.width * 0.15, hb.left + hb.width * 0.85];
+    var darkHits = 0;
+    probes.forEach(function (x) {
+      var stack = document.elementsFromPoint(x, probeY);
+      for (var k = 0; k < stack.length; k++) {
+        if (header.contains(stack[k])) continue;
+        if (stack[k].closest(".tone-dark, .hero__art")) darkHits++;
+        break;
+      }
+    });
+    header.classList.toggle("is-dark", darkHits === probes.length || (darkHits > 0 && nav.classList.contains("is-open") === false && window.innerWidth <= 920));
     lastY = y;
     ticking = false;
   }
