@@ -698,3 +698,65 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   .head__side { justify-self: start; }
   .jobs__symbol { height: 26%; top: -6%; right: -12%; }
 }
+
+/* =========================================================
+   Lienzo continuo con paneles flotantes
+   Todo vive sobre un mismo fondo Marfil. Las secciones azules
+   ya no cruzan la pantalla de borde a borde: son paneles con
+   esquinas redondeadas, separados del borde, como la barra de
+   navegación. Las tarjetas y controles siguen la misma escala.
+   ========================================================= */
+:root {
+  --inset: clamp(8px, 1.2vw, 16px);   /* separación de los paneles al borde */
+  --r-panel: clamp(22px, 2.4vw, 36px);
+  --r-card: 18px;
+  --r-control: 999px;
+}
+
+/* Barra utilitaria en el mismo lienzo claro */
+.utility { background: var(--marfil); color: var(--pizarra); }
+.utility__lang b { color: var(--medianoche); }
+@media (hover: hover) and (pointer: fine) { .utility a:hover { color: var(--medianoche); } }
+body::before { background: var(--marfil); }
+
+/* Paneles azules */
+.hero, .band--dark, .footer {
+  margin-inline: var(--inset);
+  border-radius: var(--r-panel);
+  overflow: hidden; isolation: isolate;
+}
+.hero { margin-top: 0; }
+.band--dark { margin-block: clamp(1rem, 2vw, 1.5rem); }
+.footer { margin-bottom: var(--inset); }
+.band--light, .band--paper { background: transparent; }
+.ticker { background: transparent; border-bottom: 0; }
+
+/* Mantener el contenido alineado con la retícula general dentro del panel */
+@media (max-width: 1340px) {
+  .hero > .wrap, .band--dark > .wrap, .footer > .wrap {
+    padding-left: max(16px, calc(24px - var(--inset)), env(safe-area-inset-left, 0px));
+    padding-right: max(16px, calc(24px - var(--inset)), env(safe-area-inset-right, 0px));
+  }
+}
+
+/* Escala de esquinas para tarjetas y controles */
+.btn:not(.btn--ghost), .chip, .nav-toggle { border-radius: var(--r-control); }
+.company, .essence__item, .news__item, .contact, .figures, .values, .form { border-radius: var(--r-card); }
+.company, .contact, .figures, .values, .news__item { overflow: hidden; }
+.values { border-radius: var(--r-card); }
+.company__placeholder { border-radius: 12px; }
+.social a { border-radius: 50%; }
+.contact { border: 0; box-shadow: 0 1px 0 var(--niebla), 0 30px 60px -40px rgba(15, 27, 45, .35); }
+.contact__info { border-radius: 0; }
+.form { border-radius: 0; }
+.job a { border-radius: 12px; }
+
+/* Profundidad sutil de las tarjetas claras sobre el panel azul */
+.band--dark .company { box-shadow: 0 30px 60px -36px rgba(0, 0, 0, .55); }
+
+/* Separación entre secciones claras consecutivas */
+.band--light + .band--light { padding-top: calc(var(--band) * .4); }
+
+@media (max-width: 600px) {
+  :root { --r-card: 14px; }
+}
