@@ -343,18 +343,15 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .news__item > p:last-child { font-size: var(--fs-sm); color: var(--pizarra); }
 .news__item--feature > p:last-child { color: var(--texto-oscuro-2); max-width: 30rem; }
 
-/* ---------- Talento ---------- */
-.talent { overflow: hidden; isolation: isolate; }
-.talent__symbol { position: absolute; z-index: -1; right: max(2rem, calc((100% - var(--wrap)) / 2)); bottom: -18%; height: 130%; width: auto; max-width: none; }
-.talent__symbol path { fill: var(--marfil); }
-.talent__symbol .sym-top { opacity: .05; }
-.talent__symbol .sym-bottom { opacity: .03; }
-.talent__inner { max-width: calc(var(--wrap) + 48px); }
-.talent h2 { font-size: clamp(2.4rem, 1.4rem + 4vw, 5rem); max-width: 14ch; margin-bottom: 1.4rem; }
-.talent .subtitle { max-width: 36rem; color: var(--texto-oscuro); }
-.talent__areas { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; max-width: 44rem; }
-.talent__areas li { font-size: var(--fs-sm); color: var(--marfil); border: 1px solid var(--linea-oscura); padding: .5rem .9rem; }
-.talent__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; margin-top: 2.6rem; }
+/* ---------- Talento y vacantes ---------- */
+.vacancies { overflow: hidden; isolation: isolate; }
+.jobs__symbol { position: absolute; z-index: -1; right: max(2rem, calc((100% - var(--wrap)) / 2)); top: -14%; height: 44%; width: auto; max-width: none; }
+.jobs__symbol path { fill: var(--marfil); }
+.jobs__symbol .sym-top { opacity: .05; }
+.jobs__symbol .sym-bottom { opacity: .03; }
+.head__side { display: grid; gap: 1.2rem; justify-items: start; justify-self: end; max-width: 30rem; }
+.head__side p { color: var(--pizarra); }
+.band--dark .head__side p { color: var(--texto-oscuro-2); }
 
 /* ---------- Contacto: panel doble ---------- */
 .contact { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr); border: 1px solid var(--niebla); }
@@ -504,7 +501,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   .companies, .essence, .news, .contact { grid-template-columns: minmax(0, 1fr); }
   .news__item--feature { grid-row: auto; min-height: 340px; }
   .values { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .talent__symbol { opacity: .6; right: -20%; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .footer__brand { grid-column: 1 / -1; }
 }
@@ -678,4 +674,27 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   .header.is-dark:has(.nav.is-open) .nav-toggle span { background: var(--medianoche); }
   .header.is-dark .nav a:not(.btn) { color: var(--grafito); }
   .header.is-dark .nav .btn--dark { background: var(--medianoche); color: var(--marfil); }
+}
+
+/* Vacantes sobre fondo azul */
+.vacancies .chip { color: var(--texto-oscuro); border-color: var(--linea-oscura); }
+.vacancies .chip[aria-pressed="true"] { background: var(--oro); border-color: var(--oro); color: var(--medianoche); }
+.vacancies .jobs__count { color: var(--texto-oscuro-2); }
+.vacancies .jobs__count strong { color: var(--marfil); }
+.vacancies .jobs__list { border-top-color: rgba(244, 241, 234, .5); }
+.vacancies .job { border-bottom-color: var(--linea-oscura); }
+.vacancies .job__title { color: var(--marfil); }
+.vacancies .job__company { color: var(--texto-oscuro); }
+.vacancies .job__meta { color: var(--texto-oscuro-2); }
+.vacancies .job__cta { color: var(--marfil); }
+.vacancies .job a:active { background: var(--medianoche-2); }
+.vacancies .job a::before { background: radial-gradient(420px circle at var(--mx) var(--my), rgba(181, 154, 106, .16), transparent 60%); }
+.vacancies .jobs__empty { color: var(--texto-oscuro-2); border-bottom-color: var(--linea-oscura); }
+@media (hover: hover) and (pointer: fine) {
+  .vacancies .chip:not([aria-pressed="true"]):hover { border-color: var(--marfil); color: var(--marfil); }
+  .vacancies .job a:hover { background: var(--medianoche-2); }
+}
+@media (max-width: 920px) {
+  .head__side { justify-self: start; }
+  .jobs__symbol { height: 26%; top: -6%; right: -12%; }
 }

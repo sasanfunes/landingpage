@@ -48,7 +48,7 @@
 
     /* Aparición suave de bloques (el contenido ya es visible sin JS) */
     if (!reduceMotion) {
-      var revealSel = ".head > p, .head > .link, .statement, .essence__item:not(.essence__item--dark), .values li, .company, .news__item:not(.news__item--feature), .talent .subtitle, .talent__areas, .talent__actions, .jobs__bar, .job, .form";
+      var revealSel = ".head > p, .head > .link, .statement, .essence__item:not(.essence__item--dark), .values li, .company, .news__item:not(.news__item--feature), .head__side, .jobs__bar, .job, .form";
       var targets = document.querySelectorAll(revealSel);
       targets.selector = revealSel;
       var revealer = new IntersectionObserver(function (entries) {
@@ -133,7 +133,7 @@
 
   if (!reduceMotion && "IntersectionObserver" in window) {
     // Titulares de sección: se dividen en palabras
-    var heads = document.querySelectorAll(".head h2, .split__aside h2, .talent h2, .contact__info h2");
+    var heads = document.querySelectorAll(".head h2, .split__aside h2, .contact__info h2");
     heads.forEach(function (h) {
       var text = h.textContent.trim();
       h.setAttribute("aria-label", text);
