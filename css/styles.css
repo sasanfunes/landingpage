@@ -269,6 +269,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .company__logo img { width: 190px; max-width: 100%; height: auto; }
 .company__logo img.is-tall { width: auto; height: 112px; }
 .company__logo img[src*="global-trade"] { width: 170px; }
+/* Motrique: tamaño mínimo en pantalla de 180 px según su manual */
+.company__logo img.is-motrique { width: 190px; min-width: 180px; }
 .company__placeholder { font-size: var(--fs-note); letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-3); border: 1px dashed var(--filete-2); border-radius: 12px; padding: .9rem 1.3rem; }
 .company__body { display: grid; gap: .55rem; min-width: 0; }
 .company .tag { color: var(--tinta-3); letter-spacing: .16em; }
