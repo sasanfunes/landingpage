@@ -48,7 +48,7 @@
 
     /* Aparición suave de bloques (el contenido ya es visible sin JS) */
     if (!reduceMotion) {
-      var revealSel = ".head > p, .head > .link, .statement, .essence__item, .values li, .company, .news__item:not(.news__item--lead), .head__side, .jobs__bar, .job, .form";
+      var revealSel = ".head > p, .head > .link, .statement, .essence__item, .values li, .company, .head__side, .jobs__bar, .job, .form";
       var targets = document.querySelectorAll(revealSel);
       targets.selector = revealSel;
       var revealer = new IntersectionObserver(function (entries) {
@@ -153,7 +153,7 @@
     });
 
     // Bloques oscuros que se abren como cortina
-    var wipes = document.querySelectorAll(".company__logo, .news__item--lead");
+    var wipes = document.querySelectorAll(".company__logo");
     wipes.forEach(function (el) { el.classList.add("wipe"); });
 
     var inObs = new IntersectionObserver(function (entries) {
