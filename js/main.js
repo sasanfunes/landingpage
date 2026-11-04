@@ -106,6 +106,7 @@
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   var progressBar = document.querySelector(".progress span");
   var lastY = window.scrollY, ticking = false;
+  var darkZones = Array.prototype.slice.call(document.querySelectorAll(".hero, .band--dark, .footer"));
 
   // Progreso de lectura y encabezado que se oculta al bajar
   function onFrame() {
@@ -116,6 +117,10 @@
       if (y > lastY + 6 && y > 420) header.classList.add("is-hidden");
       else if (y < lastY - 6 || y < 420) header.classList.remove("is-hidden");
     }
+    // Tono de la barra según la sección que pasa por debajo
+    var probe = header.getBoundingClientRect().top + 14 + 38;
+    var dark = darkZones.some(function (z) { var r = z.getBoundingClientRect(); return r.top <= probe && r.bottom >= probe; });
+    header.classList.toggle("is-dark", dark);
     lastY = y;
     ticking = false;
   }
@@ -123,6 +128,8 @@
     if (!ticking) { ticking = true; requestAnimationFrame(onFrame); }
   }, { passive: true });
   header.addEventListener("focusin", function () { header.classList.remove("is-hidden"); });
+  onFrame();
+  window.addEventListener("resize", onFrame);
 
   if (!reduceMotion && "IntersectionObserver" in window) {
     // Titulares de sección: se dividen en palabras
