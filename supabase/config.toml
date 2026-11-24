@@ -1,0 +1,7 @@
+# Configuración de Supabase para este repositorio.
+# El chat es público (lo usan visitantes sin sesión), por eso la función
+# no exige el JWT de Supabase. La protección está en la propia función:
+# lista de orígenes permitidos, límites de longitud y límite por IP.
+
+[functions.chat]
+verify_jwt = false

@@ -29,6 +29,46 @@ Los archivos de `assets/brand/` se vectorizaron a partir de las láminas del man
 - Conectar el formulario a un servicio de envío (ver el `TODO` en `js/main.js`).
 - Enlazar los documentos reales: reportes, información financiera y Código de Ética.
 
+## Asistente virtual (chatbot)
+
+La página incluye un chat flotante (`js/chat.js` y `css/chat.css`) para que los visitantes pregunten sobre el Grupo, sus empresas y sus vacantes. Las respuestas las genera Claude a través de una Edge Function de Supabase (`supabase/functions/chat`), así la clave de API nunca llega al navegador.
+
+```
+Navegador (js/chat.js) ──POST /functions/v1/chat──► Edge Function ──► Claude API
+```
+
+### Qué sabe el asistente
+
+Todo está en `supabase/functions/chat/knowledge.ts`. Edite `BUSINESS_INFO` para agregar servicios, horarios, preguntas frecuentes o datos de contacto, y `SYSTEM_PROMPT` para cambiar el tono o las reglas. Lo que no esté ahí, el asistente lo reconoce y canaliza al formulario de contacto. Después de editarlo, vuelva a desplegar la función.
+
+### Puesta en marcha
+
+1. **Secreto con la clave de Claude.** En Supabase → *Edge Functions* → *Secrets*, el secreto debe llamarse `ANTHROPIC_API_KEY` (también se acepta `CLAUDE_API_KEY`). Si ya creó uno con otro nombre, agregue un secreto `ANTHROPIC_KEY_SECRET_NAME` cuyo valor sea ese nombre.
+2. **Desplegar la función** (con la [CLI de Supabase](https://supabase.com/docs/guides/cli)):
+   ```bash
+   supabase login
+   supabase link --project-ref TU-PROYECTO
+   supabase functions deploy chat --no-verify-jwt
+   ```
+   `--no-verify-jwt` permite que la usen visitantes sin sesión (ya está fijado en `supabase/config.toml`).
+3. **Conectar la página.** En `index.html`, en la etiqueta `<script id="stf-chat">`, reemplace `TU-PROYECTO` en `data-endpoint` por el ID de su proyecto (lo ve en la URL del panel de Supabase).
+4. **Restringir el dominio (recomendado).** Agregue el secreto `ALLOWED_ORIGINS` con los dominios donde vive el sitio, separados por coma, p. ej. `https://grupostf.hn,https://sasanfunes.github.io`. Así otros sitios no pueden usar su función.
+
+### Opcional
+
+| Secreto | Para qué |
+|---|---|
+| `CLAUDE_MODEL` | Cambiar el modelo. Por defecto `claude-haiku-5-5` (rápido y económico). |
+
+### Protecciones incluidas
+
+- La clave solo vive en Supabase.
+- Máximo 1 000 caracteres por mensaje, 16 turnos de historial y 400 tokens de respuesta.
+- Límite aproximado de 20 mensajes por IP cada 10 minutos.
+- Las respuestas se muestran como texto plano (no se inyecta HTML).
+
+Fije también un límite de gasto mensual en Claude Console (*Settings → Limits*).
+
 ## Ver en local
 
 ```bash
